@@ -36,12 +36,12 @@ while(low <= up){
     BigInteger MusWen = stringToBigInteger(stringwol);
 
     while (NewSum != MusWen && counter < 31){
-      NewSum = NewSum + MusWen
+      NewSum = NewSum + MusWen;
       string NewSumString = bigIntegerToString(NewSum);
       string MusWenString;
       copy(NewSumString.rbegin(), NewSumString.rend(),back_inserter(MusWenString));
       MusWen = stringToBigInteger(MusWenString);
-counter++
+counter++;
     }
     if (counter >=31){
       countly++;
