@@ -1,0 +1,65 @@
+#include <iostream>
+#include "BigIntegerLibrary.hh"
+using namespace std;
+
+int main(){
+  int low, up;
+  cout << "Give me the lower bound of the sequence: " << endl;
+  cin >> low;
+  cout << "Give me the upper bound of the sequence: " << endl;
+  cin >> up;
+
+  BigInteger low1;
+
+  BigInteger up1;
+  up1 = up;
+
+  int countpal = 0;
+  int countnopal = 0;
+  int countly = 0;
+  int saved_low = low;
+
+while(low <= up){
+  low1 = low;
+
+  string stringlow = bigIntegerToString(low1);
+  string stringwol;
+
+  copy(stringlow.rbegin(), stringlow.rend(),back_inserter(stringwol));
+
+  if(stringlow == stringwol){
+    countpal++;
+    low++;
+  } else {
+    cout << stringlow << endl;
+    int counter = 0;
+    BigInteger NewSum = low1;
+    BigInteger MusWen = stringToBigInteger(stringwol);
+
+    while (NewSum != MusWen && counter < 31){
+      NewSum = NewSum + MusWen
+      string NewSumString = bigIntegerToString(NewSum);
+      string MusWenString;
+      copy(NewSumString.rbegin(), NewSumString.rend(),back_inserter(MusWenString));
+      MusWen = stringToBigInteger(MusWenString);
+counter++
+cout << NewSum << "and" << MusWen << endl;
+    }
+    if (counter >=31){
+      countly++;
+      cout << "Found Lycheral number: "<< low << endl;
+      low++;
+    }else{
+      countnopal++;
+      low++;
+    }
+  }
+}
+
+cout << "And the result are for range " << saved_low << " to " << up << endl;
+cout << "Natural Palindromes: " << countpal << endl;
+cout << "Natural Non Lychrels (become palindrome): " << countnopal << endl;
+cout << "Lycheral candidates: " << countly << endl;
+
+return 0;
+  }
